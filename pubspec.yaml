@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  awesome_circular_chart: ^1.0.0
+    
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -51,6 +53,8 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+     - assets/images/movie_logo.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
