@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../styles.dart';
+
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
 
@@ -19,7 +21,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       elevation: 4,
       title: Container(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        child: Text(title, style: Theme.of(context).textTheme.headline1),
+        child: Text(title, style: Styles.appBarTitile),
       ),
     );
   }

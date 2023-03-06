@@ -4,7 +4,7 @@ ThemeData theme() {
   return ThemeData(
       scaffoldBackgroundColor: Colors.white,
       primaryColor: Colors.red,
-      fontFamily: 'Avenir',
+      fontFamily: 'Roboto',
       textTheme: textTheme());
 }
 

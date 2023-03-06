@@ -8,8 +8,12 @@ class AppRouter {
       case MovieListScreen.routeName:
         return MovieListScreen.route();
       case MovieDetailsScreen.routeName:
-        return MovieDetailsScreen
-            .route(index: int.parse(settings.arguments.toString()));
+        List<Object?> mass = (settings.arguments as Set<Object?>).toList();
+        return MovieDetailsScreen.route(
+            index: int.parse(mass[0].toString()),
+            poster: mass[1].toString(),
+            backImage: mass[2].toString(),
+            title: mass[3].toString());
 
       default:
         return _errorRoute();
