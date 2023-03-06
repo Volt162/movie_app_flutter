@@ -27,28 +27,33 @@ class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
       StartMovieList event, Emitter<MovieListState> emit) async {
     emit(MovieListLoading());
     try {
-      final response = await _movieService.getPopularMovies(page);
+      final popularResponse = await _movieService.getPopularMovies(page);
+      final topResponse = await _movieService.getRatedMovies(1);
       page++;
-      if (response.status == Status.SUCCESS) {
-        var movies = response.data!.results;
-        var length = response.data!.totalresults;
-        emit(MovieListLoaded(
-            movieList: MovieList(movies: movies),
+      if (popularResponse.status == Status.SUCCESS &&
+          topResponse.status == Status.SUCCESS) {
+        var pMovies = popularResponse.data!.results;
+        var tMovies = topResponse.data!.results;
+        var length = popularResponse.data!.totalresults;
+
+        emit(MovieListsLoaded(
+            popularMovieList: MovieList(movies: pMovies),
+            topMovieList: MovieList(movies: tMovies),
             totalMovieListLength: length!));
       } else {
-        emit(const MovieListLoaded());
+        emit(MovieListError());
       }
     } catch (e) {
-      emit(const MovieListLoaded());
+      emit(MovieListError());
     }
   }
 
   FutureOr<void> _onRefreshMovieList(
       RefreshMovieList event, Emitter<MovieListState> emit) {
     if (event.firstPageMovies.movies!.isNotEmpty) {
-      var s = state as MovieListLoaded;
+      var s = state as MovieListsLoaded;
       emit(s.copyWith(
-          movieList: MovieList(movies: event.firstPageMovies.movies),
+          popularMovieList: MovieList(movies: event.firstPageMovies.movies),
           isRefresh: true));
     } else {
       emit(state);
@@ -58,9 +63,9 @@ class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
   FutureOr<void> _onLoadMoreMovieList(
       LoadMoreMovieList event, Emitter<MovieListState> emit) {
     if (event.newListMovies.movies!.isNotEmpty) {
-      var s = state as MovieListLoaded;
+      var s = state as MovieListsLoaded;
       emit(s.copyWith(
-          movieList: MovieList(movies: event.newListMovies.movies),
+          popularMovieList: MovieList(movies: event.newListMovies.movies),
           isRefresh: false));
     } else {
       emit(state);

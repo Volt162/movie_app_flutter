@@ -10,30 +10,34 @@ abstract class MovieListState extends Equatable {
 
 class MovieListLoading extends MovieListState {}
 
-class MovieListLoaded extends MovieListState {
+class MovieListsLoaded extends MovieListState {
   final bool isRefresh;
-  final MovieList movieList;
+  final MovieList topMovieList;
+  final MovieList popularMovieList;
   final int totalMovieListLength;
 
-  const MovieListLoaded(
+  const MovieListsLoaded(
       {this.totalMovieListLength = 0,
       this.isRefresh = false,
-      this.movieList = const MovieList()});
+      this.popularMovieList = const MovieList(),
+      this.topMovieList = const MovieList()});
 
-  MovieListLoaded copyWith({
-     bool? isRefresh,
-     MovieList? movieList,
-     int? totalMovieListLength,
+  MovieListsLoaded copyWith({
+    bool? isRefresh,
+    MovieList? popularMovieList,
+    MovieList? topMovieList,
+    int? totalMovieListLength,
   }) {
-    return MovieListLoaded(
+    return MovieListsLoaded(
       isRefresh: isRefresh ?? this.isRefresh,
-      movieList: movieList ?? this.movieList,
+      popularMovieList: popularMovieList ?? this.popularMovieList,
+      topMovieList: topMovieList ?? this.topMovieList,
       totalMovieListLength: totalMovieListLength ?? this.totalMovieListLength,
     );
   }
 
   @override
-  List<Object> get props => [totalMovieListLength, movieList, isRefresh];
+  List<Object> get props => [totalMovieListLength, popularMovieList, topMovieList, isRefresh];
 }
 
 class MovieListError extends MovieListState {}

@@ -14,7 +14,6 @@ class AppRouter {
             poster: mass[1].toString(),
             backImage: mass[2].toString(),
             title: mass[3].toString());
-
       default:
         return _errorRoute();
     }

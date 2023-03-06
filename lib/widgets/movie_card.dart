@@ -20,7 +20,7 @@ class MovieCard extends StatelessWidget {
             arguments: {movie!.id, movie!.posterpath, movie!.backdroppath, movie!.title});
       }),
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        margin: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
         height: 150,
         decoration: BoxDecoration(
           color: Colors.white,

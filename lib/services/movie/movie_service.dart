@@ -29,6 +29,28 @@ class MovieService implements IMovieService {
     }
     return apiResponse;
   }
+
+  @override
+  Future<ApiResponse<MovieListPage>> getRatedMovies(int page) async {
+    const path = '/3/movie/top_rated';
+    ApiResponse<MovieListPage> apiResponse;
+
+    final response = await _restService.get(path, {'page': page.toString()});
+    if (response.status == Status.SUCCESS) {
+      final list = response.data as Map<String, dynamic>;
+
+      var result = MovieListPage.fromJson(list);
+      
+      apiResponse = ApiResponse<MovieListPage>.success(result);
+    } else {
+      apiResponse = ApiResponse<MovieListPage>.failure(response.message);
+    }
+
+    if (kDebugMode) {
+      print(apiResponse);
+    }
+    return apiResponse;
+  }
   
   @override
   Future<ApiResponse<MovieDetailsModel>> getMovieDetails(int id) async {

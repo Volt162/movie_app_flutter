@@ -9,6 +9,14 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
   );
 
+  static const TextStyle titile = TextStyle(
+    color: Color.fromRGBO(0, 0, 0, 0.8),
+    fontSize: 24,
+    fontFamily: 'BebasNeue',
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.bold,
+  );
+
   static const Color white_1 = Color(0xFFD9D9D9);
 
   static const Color white_2 = Color(0xfff0f0f0);

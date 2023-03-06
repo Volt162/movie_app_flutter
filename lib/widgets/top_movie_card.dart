@@ -48,7 +48,7 @@ class TopMovieCard extends StatelessWidget {
               placeholderFit: BoxFit.scaleDown,
               placeholder: 'assets/images/movie_logo.png',
               image:
-                  'https://image.tmdb.org/t/p/w300//dm06L9pxDOL9jNSK4Cb6y139rrG.jpg',
+                  'https://image.tmdb.org/t/p/w300/${movie!.posterpath}',
               height: 250,
               width: 150,
             ),
