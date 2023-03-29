@@ -12,7 +12,7 @@ MovieItem _$MovieItemFromJson(Map<String, dynamic> json) => MovieItem(
       originaltitle: json['original_title'] as String?,
       overview: json['overview'] as String?,
       posterpath: json['poster_path'] as String?,
-      releasedate: json['release_date'] as String?,
+      releasedate: json['release_date'] as String? ?? DateTime.now().toString(),
       title: json['title'] as String?,
     );
 
