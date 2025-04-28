@@ -1,16 +1,8 @@
 # movie_app_flutter
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/faee439a-4927-4c39-a083-9025f498fb11" width="350" title="hover text">
+  <img src="https://github.com/user-attachments/assets/1b31ed44-0e54-46d1-a9e0-88786f8a74d9" width="350" alt="accessibility text">
+</p>
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Features
+ The application displays movie list including Popular and Top 20, we can also view the details page with more info. Used animations and lazy loading.
